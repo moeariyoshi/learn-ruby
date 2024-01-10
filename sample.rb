@@ -1,3 +1,5 @@
+# require some_module
+
 # irb for cli 
 def hi(name = "World") # default: World -> just do irb > hi
   puts "Hello #{name}!" # put string -> returns nil
@@ -57,4 +59,3 @@ class MegaGreeter
   # $0はプログラムを実行するときに使われるファイル名です。 
   # このチェックは、「もしこれがメインファイルとして実行されているならば……」 という意味になります。 
   # これは、ライブラリとして使われる場合には実行されないけれど、 実行ファイルとして使われる場合には実行されるコードを書くために使われます。
-  
