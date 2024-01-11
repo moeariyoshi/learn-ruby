@@ -5,15 +5,17 @@ def hi(name = "World") # default: World -> just do irb > hi
   puts "Hello #{name}!" # put string -> returns nil
 end
 
-class Greeter
-  def initilize(name = "World")
-    @name = name # instance variable
-    # attr_accessor :name 
-    # attr_accessorを使うと2つの新しいメソッドが定義されます。 
-    # nameは値を参照するメソッドで、name=は値を設定するメソッドです。
-  end
-  def say_hi
-    puts "Hi #{@name}!"
+class Greeter < some module?
+  class << self
+    def initilize(name = "World")
+      @name = name # instance variable
+      # attr_accessor :name 
+      # attr_accessorを使うと2つの新しいメソッドが定義されます。 
+      # nameは値を参照するメソッドで、name=は値を設定するメソッドです。
+    end
+    def say_hi
+      puts "Hi #{@name}!"
+    end
   end
 end
 
@@ -52,10 +54,35 @@ class MegaGreeter
     end
   end
 
-  if __FILE__ == $0
-    todo()
+  # Ruby program to understand include and extend
+
+# Creating a module contains a method
+module Geek
+  def prints(x)
+    puts x
   end
-  # __FILE__ は現在のファイル名を返す特別な変数です。 
-  # $0はプログラムを実行するときに使われるファイル名です。 
-  # このチェックは、「もしこれがメインファイルとして実行されているならば……」 という意味になります。 
-  # これは、ライブラリとして使われる場合には実行されないけれど、 実行ファイルとして使われる場合には実行されるコードを書くために使われます。
+end
+  
+class GFG
+  # by using both include and extend
+  # we can access them by both instances
+  # and class name.
+  include Geek
+  extend Geek
+end
+  
+# access the prints() in Geek
+# module by include in Lord class
+GFG.new.prints("Howdy") # object access
+
+# access the prints() in Geek 
+# module by extend it in Lord class
+GFG.prints("GeeksforGeeks!!") # class access  
+
+if __FILE__ == $0
+  todo()
+end
+# __FILE__ は現在のファイル名を返す特別な変数です。 
+# $0はプログラムを実行するときに使われるファイル名です。 
+# このチェックは、「もしこれがメインファイルとして実行されているならば……」 という意味になります。 
+# これは、ライブラリとして使われる場合には実行されないけれど、 実行ファイルとして使われる場合には実行されるコードを書くために使われます。
